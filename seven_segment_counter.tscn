@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ccdy8neg0h6m6"]
+
+[ext_resource type="Script" uid="uid://coxywh6yovy42" path="res://SevenSegmentCounter.cs" id="1_3fd27"]
+[ext_resource type="Texture2D" uid="uid://6sgq1kxpbsls" path="res://assets/textures/7segment.png" id="2_3fd27"]
+
+[node name="SevenSegmentCounter" type="HBoxContainer" unique_id=1234458679]
+texture_filter = 1
+offset_right = 13.0
+offset_bottom = 23.0
+theme_override_constants/separation = 0
+script = ExtResource("1_3fd27")
+Texture = ExtResource("2_3fd27")

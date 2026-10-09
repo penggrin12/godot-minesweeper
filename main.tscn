@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://craeohm845fef"]
+
+[ext_resource type="Script" uid="uid://bg7w7xgwrgbl1" path="res://GameManager.cs" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bclspdkg0wniv" path="res://assets/textures/sweeper.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ccdy8neg0h6m6" path="res://seven_segment_counter.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b17lyh0ad55jf" path="res://ResetButton.cs" id="3_h2yge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xm2m"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 0, 58, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(57, 0, 1, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(58, 0, 26, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 64, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(85, 0, 55, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 55, 12, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
+texture = ExtResource("1_ig7tw")
+margins = Vector2i(0, 8)
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+sources/0 = SubResource("TileSetAtlasSource_h2yge")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(13, 55, 8, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 56, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(12, 56, 1, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(13, 56, 8, 8)
+
+[node name="Main" type="Control" unique_id=653403441]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameManager" type="Node" parent="." unique_id=1418489049]
+script = ExtResource("1_1bvp3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=56453002]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=236726289]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1713094748]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1790992864]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0xm2m")
+
+[node name="SevenSegmentCounter" parent="VBoxContainer/HBoxContainer/TextureRect" unique_id=1000896839 instance=ExtResource("2_0xm2m")]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 39.0
+Digits = 3
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=2048732591]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_h2yge")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1936762704]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1bvp3")
+
+[node name="ResetButton" type="TextureRect" parent="VBoxContainer/HBoxContainer/TextureRect3" unique_id=417363690]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 25.0
+offset_bottom = 40.000023
+texture = SubResource("AtlasTexture_efxa6")
+script = ExtResource("3_h2yge")
+IdleTextureRegion = Rect2(0, 64, 24, 24)
+PressedTextureRegion = Rect2(24, 64, 24, 24)
+OohTextureRegion = Rect2(48, 64, 24, 24)
+DeadTextureRegion = Rect2(72, 64, 24, 24)
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=660886890]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_h2yge")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=340290508]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lquwl")
+
+[node name="SevenSegmentCounter2" parent="VBoxContainer/HBoxContainer/TextureRect5" unique_id=1485843503 instance=ExtResource("2_0xm2m")]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 39.00003
+Digits = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=417191650]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=843911665]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7mycd")
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=75384414]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TileMap" type="TileMapLayer" parent="VBoxContainer/HBoxContainer2/Control" unique_id=1194870909]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_1bvp3")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=155262412]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = SubResource("AtlasTexture_272bh")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=44012599]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=1728054345]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5vw27")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=1779768998]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_kek77")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=705773280]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4c57u")
